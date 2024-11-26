@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "environmentToUse": "QA",
+    "runAndroidTests": true,
+    "runIOSTests": true,
+    "runFullAutomation": true,
+    "deviceToUse": "BS_Pixel_3",
+    "testEmail": "test@gmail.com",
+    "executionOS": "Windows",
+    "appiumServerURL": "http://127.0.0.1:4723",
+    "browserstack_user": "test",
+    "browserstack_access_key": "*******",
+    "browserstack_server_url": "http://hub-cloud.browserstack.com/wd/hub",
+    "browserstack_enable_appium_logs": false,
+    "browserstack_enable_network_logs": true
+  },
+  "environments": {
+    "QA": {
+       "BaseURL": "http://qa-server.com:4723"
+    },
+    "Dev": {
+      "BaseURL": "http://dev-server.com:4723"
+    },
+    "Stage": {
+      "BaseURL": "http://stage-server.com:4723"
+    },
+    "Prod": {
+      "BaseURL": "http://prod-server.com:4723"
+    }
+  }
+}

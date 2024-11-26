@@ -1,0 +1,12 @@
+pipeline:
+  - start-appium:
+      description: "Start the Appium server"
+      command: "appium --port 4723"
+
+  - start-emulator:
+      description: "Start the Android emulator"
+      command: "$ANDROID_HOME/emulator/emulator -avd Pixel_3_API_30 -no-snapshot -no-audio -no-window"
+
+  - run-tests:
+      description: "Run Maven tests"
+      command: "mvn clean test"

@@ -1,0 +1,19 @@
+{
+  "devices": {
+    "Pixel3": {
+      "automationName": "UiAutomator2",
+      "deviceName": "emulator-5554",
+      "platformName": "Android",
+      "platformVersion": "14.0",
+      "app": "WikipediaSample.apk",
+      "fullReset": true
+    },
+    "BSGalaxyS22Plus": {
+      "appium:automationName": "UIAutomator2",
+      "platformName": "Android",
+      "bstack:PlatformVersion": "12.0",
+      "bstack:deviceName": "Samsung Galaxy S22 Plus",
+      "bstack:app": "bs://b241f3edde60dd6f2a0ba7caa7e6527576e0c208"
+    }
+  }
+}

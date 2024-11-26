@@ -1,0 +1,45 @@
+name: Run Appium Tests Locally
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  appium-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Set up Node.js for Appium
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # 3. Install Appium and dependencies
+      - name: Install Appium and dependencies
+        run: |
+          npm install -g appium
+          npm install -g appium-doctor
+          appium-doctor --android
+
+      # 4. Start Android emulator
+      - name: Start Android Emulator
+        run: |
+          $ANDROID_HOME/emulator/emulator -avd Pixel_3_API_30 -no-audio -no-snapshot -no-window &
+          adb wait-for-device
+
+      # 5. Start Appium server
+      - name: Start Appium Server
+        run: appium --port 4723 &
+        env:
+          PATH: $PATH:/usr/local/bin
+
+      # 6. Run Maven tests
+      - name: Run tests
+        run: |
+          mvn clean test
