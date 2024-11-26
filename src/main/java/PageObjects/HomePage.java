@@ -2,29 +2,24 @@ package PageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
-    @AndroidFindBy(id = "org.wikipedia.alpha:id/menu_overflow_button")
-    private WebElement dotMenuButton;
+    private final WebElement dotMenuButton = driver.findElement(By.id("org.wikipedia.alpha:id/menu_overflow_button"));
 
-    @AndroidFindBy(id = "org.wikipedia.alpha:id/fragment_feed_header")
-    private WebElement searchField;
+    private final WebElement searchField = driver.findElement(By.id("org.wikipedia.alpha:id/fragment_feed_header"));
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='org.wikipedia.alpha:id/icon'])[2]")
-    private WebElement myListButton;
+    private final WebElement myListButton = driver.findElement(By.xpath("((//android.widget.ImageView[@resource-id=\"org.wikipedia.alpha:id/icon\"])[2])"));
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='org.wikipedia.alpha:id/icon'])[3]")
-    private WebElement historyButton;
+    private final WebElement historyButton = driver.findElement(By.xpath("((//android.widget.ImageView[@resource-id=\"org.wikipedia.alpha:id/icon\"])[3])"));
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='org.wikipedia.alpha:id/icon'])[4]")
-    private WebElement findNearbyButton;
+    private final WebElement findNearbyButton = driver.findElement(By.xpath("((//android.widget.ImageView[@resource-id=\"org.wikipedia.alpha:id/icon\"])[4])"));
 
     // Locator for the search results container
-    @AndroidFindBy(id = "org.wikipedia.alpha:id/search_results_list")
-    private WebElement searchResultsContainer;
+    private final WebElement searchResultsContainer = driver.findElement(By.id("org.wikipedia.alpha:id/search_results_list"));
 
     public HomePage(AppiumDriver driver) {
         super(driver);

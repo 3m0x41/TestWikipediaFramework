@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-    protected static final int WAIT_TIME_IN_SECONDS = 20;
+    protected static final int WAIT_TIME_IN_SECONDS = 30;
     protected AppiumDriver driver;
     protected WebDriverWait wait;
 

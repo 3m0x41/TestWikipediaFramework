@@ -32,27 +32,35 @@ public class ExtentReportManager {
     }
 
     public static void startTest(String testName) {
-        ExtentTest test = getReporter().createTest(testName);
-        setTest(test);
+        ExtentTest extentTest = getReporter().createTest(testName);
+        setTest(extentTest);
     }
 
     public static void endTest() {
-        extent.removeTest(test.get());
+        test.remove(); // Clear ThreadLocal reference
     }
 
     public static void info(String message) {
-        test.get().info(message);
+        if (test.get() != null) {
+            test.get().info(message);
+        }
     }
 
     public static void pass(String message) {
-        test.get().pass(message);
+        if (test.get() != null) {
+            test.get().pass(message);
+        }
     }
 
     public static void fail(String message) {
-        test.get().fail(message);
+        if (test.get() != null) {
+            test.get().fail(message);
+        }
     }
 
     public static void flushReports() {
-        extent.flush();
+        if (extent != null) {
+            extent.flush();
+        }
     }
 }
